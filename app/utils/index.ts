@@ -1,3 +1,5 @@
+import { PhraseMap } from "../store";
+
 export const formatPhrase = (phrase: string) =>
 	phrase
 		.trim()
@@ -5,7 +7,7 @@ export const formatPhrase = (phrase: string) =>
 		.replace(/[^\w\s]/g, "")
 		.split(" ")
 		.filter((word) => word.length > 0)
-		.reduce((wordMap: { [key: string]: number }, currentWord) => {
+		.reduce((wordMap: PhraseMap, currentWord) => {
 			if (wordMap[currentWord]) {
 				wordMap[currentWord]++;
 			} else {
